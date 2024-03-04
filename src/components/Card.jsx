@@ -1,7 +1,6 @@
 import "./card.scss";
 
 const Card = (content) => {
-  console.log(content.props.main);
   return (
     <>
       <article className="card styling">

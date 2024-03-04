@@ -1,0 +1,98 @@
+.menucard {
+  width: 100%;
+  padding: 1em;
+  background-color: #f3e4e1;
+  height: 667px;
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menuheader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menucontent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuitem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menuitemwrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bagleft {
+  flex-direction: column;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  box-shadow: 0px 0px 16px rgba(247, 247, 247, 0.12);
+}
+
+.bagright {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2f2926;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+}
+
+.littlebag {
+  position: absolute;
+  left: 69%;
+  right: -91.6%;
+  top: 29.5%;
+  bottom: 95.95%;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e5674e;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.imgRectangle {
+  margin: 0.1rem;
+}
+
+.plussign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #2f2926;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+}
