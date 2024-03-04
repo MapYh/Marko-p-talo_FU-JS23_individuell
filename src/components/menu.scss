@@ -2,8 +2,8 @@
   width: 100%;
   padding: 1em;
   background-color: #f3e4e1;
-  height: 667px;
-  width: 375px;
+  height: 41.688rem;
+  width: 23.438rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,8 +42,8 @@
 .bagleft {
   flex-direction: column;
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,13 +53,13 @@
 
 .bagright {
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #2f2926;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.12);
 }
 
 .littlebag {
@@ -94,5 +94,5 @@
   height: 2.5rem;
   border-radius: 50%;
   background: #2f2926;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.12);
 }

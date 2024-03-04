@@ -21,8 +21,8 @@ const Menu = () => {
         <header className="menuheader">
           <div className="bagleft">
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
-            <img className="imgRectangle" src={Rectangle} alt="shopping bag" />
-            <img className="imgRectangle" src={Rectangle} alt="shopping bag" />
+            <img className="imgRectangle" src={Rectangle} alt="navicon" />
+            <img className="imgRectangle" src={Rectangle} alt="navicon" />
           </div>
           <div className="bagright">
             <img src={Bag} alt="shopping bag" />

@@ -1,0 +1,65 @@
+.aboutcard {
+  background-color: #f3e4e1;
+  padding: 1em;
+  width: 23.438rem;
+  height: 66.313rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.aboutheader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutbag {
+  flex-direction: column;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  box-shadow: 0px 0px 16px rgba(247, 247, 247, 0.12);
+}
+
+.aboutmain {
+  padding: 2rem;
+  width: 23.438rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.aboutfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.aboutfooterimg {
+  background-size: contain;
+  background-image: url("../assets/images/eva_cortado.png");
+  width: 74px;
+  height: 74px;
+  border-radius: 50px;
+}
+.about-para {
+  width: 19.438rem;
+}
+
+.about-title {
+  margin-bottom: 2rem;
+}
+
+/* .styling {
+} */
