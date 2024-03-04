@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  padding: 2em;
+  background-color: #38846d;
+  height: 667px;
+  width: 375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ellipse {
+  margin-bottom: 1rem;
+  background: #4b8e79;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.styling {
+  font-family: Rufina;
+  font-weight: 700;
+  size: 42px;
+  line-height: 51.87px;
+  color: #ffffff;
+}
+
+.stylingDronedelivery {
+  font-family: Work Sans;
+  font-weight: 400;
+  size: 9px;
+  line-height: 10.56px;
+  opacity: 0.3;
+  color: #ffffff;
+}
