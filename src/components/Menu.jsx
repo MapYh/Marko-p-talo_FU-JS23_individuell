@@ -2,6 +2,7 @@ import "./menu.scss";
 import Bag from "../assets/bag.svg";
 import Rectangle from "../assets/rectangle.svg";
 import Plus from "../assets/plus.svg";
+import { useNavigate } from "react-router-dom";
 
 const menuPageInfo = {
   logo: Bag,
@@ -15,6 +16,13 @@ const menuPageInfo = {
 };
 
 const Menu = () => {
+  const navigate = useNavigate();
+
+  const navigateToCart = () => {
+    // use the navigate function to navigate to /Menu
+    navigate("/cart");
+  };
+
   return (
     <>
       <article className="menucard">
@@ -24,7 +32,7 @@ const Menu = () => {
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
           </div>
-          <div className="bagright">
+          <div className="bagright" onClick={() => navigateToCart()}>
             <img src={Bag} alt="shopping bag" />
             <div className="littlebag">{menuPageInfo.numberOfItems}</div>
           </div>

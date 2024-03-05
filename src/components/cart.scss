@@ -1,0 +1,89 @@
+.cartcard {
+  position: relative;
+  padding: 2em;
+  background-color: #ffffff;
+  height: 35.941rem;
+  width: 21.313rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  top: 4.5rem;
+  left: 1.1rem;
+}
+
+.cart-text {
+  font-family: PT Sarif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.cartbtn {
+  background-color: #2f2926;
+  width: 15.5rem;
+  height: 3.438rem;
+  border-radius: 3.125rem;
+  color: white;
+}
+.cartbtnfont {
+  font-family: PT Serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.polygon {
+  position: absolute;
+  z-index: -1;
+  left: 85.47%;
+  right: 8%;
+  top: -1.46%;
+  bottom: 95.46%;
+  transform: rotate(45deg);
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.cartmain {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+}
+
+.cartitem {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.pricearrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.background {
+  position: fixed;
+  display: block;
+  height: 41.688rem;
+  width: 23.438rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backgroundMenu {
+  z-index: -2;
+  position: fixed;
+}

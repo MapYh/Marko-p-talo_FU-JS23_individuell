@@ -12,7 +12,7 @@ const Nav = () => {
 
   const navigateToMenu = () => {
     // use the navigate function to navigate to /Menu
-    navigate("/Menu");
+    navigate("/menu");
   };
 
   const navigateToLandingPage = () => {

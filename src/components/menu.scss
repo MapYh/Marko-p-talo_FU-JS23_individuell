@@ -1,4 +1,5 @@
 .menucard {
+  position: relative;
   width: 100%;
   padding: 1em;
   background-color: #f3e4e1;
@@ -64,10 +65,8 @@
 
 .littlebag {
   position: absolute;
-  left: 69%;
-  right: -91.6%;
-  top: 29.5%;
-  bottom: 95.95%;
+  left: 90%;
+  top: 1.5%;
   color: white;
   border-radius: 50%;
   width: 25px;

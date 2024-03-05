@@ -7,6 +7,7 @@ import Nav from "./components/Nav.jsx";
 import Status from "./components/Status.jsx";
 import Profile from "./components/Profile";
 import About from "./components/About.jsx";
+import Cart from "./components/Cart.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/status" element={<Status />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </>
