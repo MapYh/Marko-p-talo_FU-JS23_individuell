@@ -34,7 +34,6 @@
 }
 
 .menuitemwrapper {
-  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -83,15 +82,22 @@
   margin: 0.1rem;
 }
 
+.ellipseplus {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #2f2926;
+}
+
 .plussign {
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: white;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background: #2f2926;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.12);
+}
+
+.footer {
+  padding: 5rem;
 }
