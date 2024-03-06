@@ -1,12 +1,19 @@
 import "./about.scss";
 import Rectangle from "../assets/rectangle.svg";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+  const navigateToNewPage = () => {
+    // use the navigate function to navigate to /Menu
+    navigate("/Nav");
+  };
+
   return (
     <>
       <article className="aboutcard">
         <header className="aboutheader">
-          <div className="aboutbag">
+          <div className="aboutbag" onClick={() => navigateToNewPage()}>
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
             <img className="imgRectangle" src={Rectangle} alt="navicon" />

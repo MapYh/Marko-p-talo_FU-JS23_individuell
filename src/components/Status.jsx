@@ -1,7 +1,14 @@
 import "./status.scss";
 import DroneAndCup from "../assets/droneandcup.svg";
+import { useNavigate } from "react-router-dom";
 
 const Orderstatus = () => {
+  const navigate = useNavigate();
+  const navigateToNewPage = () => {
+    // use the navigate function to navigate to /Menu
+    navigate("/Nav");
+  };
+
   return (
     <>
       <article className="statuscard">
@@ -12,7 +19,12 @@ const Orderstatus = () => {
           <h3 className="main__eta">eta minuter</h3>
         </main>
         <footer>
-          <button className="footerbtn btntextstyling">Ok, cool!</button>
+          <button
+            className="footerbtn btntextstyling"
+            onClick={() => navigateToNewPage()}
+          >
+            Ok, cool!
+          </button>
         </footer>
       </article>
     </>

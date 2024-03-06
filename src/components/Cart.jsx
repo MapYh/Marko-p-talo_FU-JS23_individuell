@@ -5,6 +5,7 @@ import upsideVector from "../assets/upsideVector.svg";
 import Menu from "./Menu.jsx";
 /* import useCounterStore from "./useCounterStore.jsx"; */
 import { create } from "zustand";
+import { useNavigate } from "react-router-dom";
 
 const useCounterStore = create((set) => ({
   count: 0,
@@ -13,6 +14,12 @@ const useCounterStore = create((set) => ({
 }));
 
 const Cart = () => {
+  const navigate = useNavigate();
+  const navigateToStatusPage = () => {
+    // use the navigate function to navigate to /Menu
+    navigate("/Status");
+  };
+
   const increment = useCounterStore((state) => state.increment);
   const decrement = useCounterStore((state) => state.decrement);
   const count = useCounterStore((state) => state.count);
@@ -62,7 +69,10 @@ const Cart = () => {
           </article>
         </section>
 
-        <button className="cartbtn cartbtnfont" onClick={increment}>
+        <button
+          className="cartbtn cartbtnfont"
+          onClick={() => navigateToStatusPage()}
+        >
           Take my money!
         </button>
       </div>

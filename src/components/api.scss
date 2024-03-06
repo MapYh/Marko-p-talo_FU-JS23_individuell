@@ -1,0 +1,39 @@
+.item-container {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 64px 200px 80px;
+  align-items: center;
+}
+.item_title {
+  white-space: nowrap;
+  font-family: PT Serif;
+  font-size: 23px;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.item_desc {
+  display: flex;
+  align-items: start;
+  font-family: Work Sans;
+  font-size: 12px;
+  font-weight: 400;
+}
+.item_price {
+  font-family: PT Serif;
+  font-size: 23px;
+  font-weight: 700;
+  margin-left: 15px;
+}
+
+.add-icon {
+  cursor: pointer;
+}
+
+.item-list {
+  list-style-type: none;
+}
+
+.item_title_line {
+  display: flex;
+}
