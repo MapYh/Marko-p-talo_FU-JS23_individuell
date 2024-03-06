@@ -4,7 +4,6 @@ import Vector from "../assets/vector.svg";
 import upsideVector from "../assets/upsideVector.svg";
 import Menu from "./Menu.jsx";
 import { useStore } from "../store.js";
-
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {

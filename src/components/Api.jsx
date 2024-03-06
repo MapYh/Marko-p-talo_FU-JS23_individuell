@@ -7,6 +7,7 @@ import Plus from "../assets/plus.svg";
 import Line from "../assets/line.svg";
 import "./api.scss";
 import "./menu.scss";
+import { useStore } from "../store.js";
 
 const menuPageInfo = {
   logo: Bag,
@@ -15,12 +16,15 @@ const menuPageInfo = {
   numberOfItems: 7,
 };
 
-let total_eta;
-let order_number;
-
 const Api = () => {
   const [Data, setData] = useState([]);
   const [Item, setItem] = useState([]);
+
+  const setEta = useStore((state) => state.setEta);
+  const setordernumber = useStore((state) => state.setordernumber);
+
+  const increment = useStore((state) => state.increment);
+  const count = useStore((state) => state.count);
 
   const fetchData = async () => {
     const url = "//airbean-api-xjlcn.ondigitalocean.app/api/beans/";
@@ -34,7 +38,7 @@ const Api = () => {
     fetchData();
   }, []);
 
-  const addItemToCart = async (arg, argtwo) => {
+  const AddItemToCart = async (arg, argtwo) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -55,12 +59,10 @@ const Api = () => {
     );
     const data = await response.json(response);
     setItem(data);
-    total_eta = data.eta; //ok
-    order_number = data.orderNr; //ok
-    console.log(total_eta, order_number);
-    /* return { total_eta, order_number }; */
+    console.log(data);
+    setordernumber(data.orderNr);
+    setEta(data.eta);
   };
-
   const navigate = useNavigate();
   const navigateToCart = () => {
     // use the navigate function to navigate to /Menu
@@ -76,12 +78,15 @@ const Api = () => {
       return (
         <li className="item-list " key={item.id}>
           <div className="item-container">
-            <section
-              className="plussign  ellipseplus"
-              onClick={() => addItemToCart(item.title, item.price)}
+            <div
+              onClick={() => {
+                AddItemToCart(item.title, item.price);
+              }}
             >
-              <img className="add-icon" src={menuPageInfo.plusSign} alt="" />
-            </section>
+              <section className="plussign  ellipseplus" onClick={increment}>
+                <img className="add-icon" src={menuPageInfo.plusSign} alt="" />
+              </section>
+            </div>
             <div className="item-textcontainer">
               <section className="item_title_line">
                 <h3 className="item_title">{item.title}</h3>
@@ -108,7 +113,7 @@ const Api = () => {
           </div>
           <div className="bagright" onClick={() => navigateToCart()}>
             <img src={Bag} alt="shopping bag" />
-            <div className="littlebag"></div>
+            <div className="littlebag">{count}</div>
           </div>
           <h1>{menuPageInfo.main}</h1>
         </header>
