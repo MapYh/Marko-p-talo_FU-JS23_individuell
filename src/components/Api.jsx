@@ -55,7 +55,6 @@ const Api = () => {
     );
     const data = await response.json(response);
     setItem(data);
-    console.log("1", data);
     total_eta = data.eta; //ok
     order_number = data.orderNr; //ok
     console.log(total_eta, order_number);

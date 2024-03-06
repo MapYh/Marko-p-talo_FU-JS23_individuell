@@ -3,15 +3,9 @@ import Line from "../assets/line.svg";
 import Vector from "../assets/vector.svg";
 import upsideVector from "../assets/upsideVector.svg";
 import Menu from "./Menu.jsx";
-/* import useCounterStore from "./useCounterStore.jsx"; */
-import { create } from "zustand";
-import { useNavigate } from "react-router-dom";
+import { useStore } from "../store.js";
 
-const useCounterStore = create((set) => ({
-  count: 0,
-  increment: () => set((state) => ({ count: state.count + 1 })),
-  decrement: () => set((state) => ({ count: state.count - 1 })),
-}));
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -20,9 +14,9 @@ const Cart = () => {
     navigate("/Status");
   };
 
-  const increment = useCounterStore((state) => state.increment);
-  const decrement = useCounterStore((state) => state.decrement);
-  const count = useCounterStore((state) => state.count);
+  const increment = useStore((state) => state.increment);
+  const decrement = useStore((state) => state.decrement);
+  const count = useStore((state) => state.count);
 
   let pris = 10;
   let total = count * pris;
