@@ -23,6 +23,9 @@ const Api = () => {
   const setEta = useStore((state) => state.setEta);
   const setordernumber = useStore((state) => state.setordernumber);
 
+  const setBeanTitle = useStore((state) => state.setBeanTitle);
+  const setBeanPrice = useStore((state) => state.setBeanPrice);
+
   const increment = useStore((state) => state.increment);
   const count = useStore((state) => state.count);
 
@@ -59,9 +62,12 @@ const Api = () => {
     );
     const data = await response.json(response);
     setItem(data);
-    console.log(data);
     setordernumber(data.orderNr);
     setEta(data.eta);
+    console.log(Data.title);
+    console.log(Data.price);
+    setBeanTitle(arg);
+    setBeanPrice(argtwo);
   };
   const navigate = useNavigate();
   const navigateToCart = () => {

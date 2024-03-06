@@ -17,6 +17,10 @@ const Cart = () => {
   const decrement = useStore((state) => state.decrement);
   const count = useStore((state) => state.count);
 
+  const beanTitle = useStore((state) => state.beanTitle);
+  const beanPrice = useStore((state) => state.beanPrice);
+
+  console.log(beanPrice);
   let pris = 10;
   let total = count * pris;
 
@@ -33,8 +37,8 @@ const Cart = () => {
         <main className="cartmain">
           <article className="cartitem">
             <div>
-              <h2>Title</h2>
-              <h4>56kr</h4>
+              <h2>{beanTitle}</h2>
+              <h4>{beanPrice}kr</h4>
             </div>
             <img src={Line} alt="line" />
             <div className="pricearrows">
