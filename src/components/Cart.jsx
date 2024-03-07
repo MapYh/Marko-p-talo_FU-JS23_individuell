@@ -16,14 +16,46 @@ const Cart = () => {
   const increment = useStore((state) => state.increment);
   const decrement = useStore((state) => state.decrement);
   const count = useStore((state) => state.count);
+  let totalarray = [0];
 
-  const beanTitle = useStore((state) => state.beanTitle);
-  const beanPrice = useStore((state) => state.beanPrice);
+  const coffeeList = useStore((state) => state.coffeeList);
 
-  console.log(beanPrice);
-  let pris = 10;
-  let total = count * pris;
+  totalarray = coffeeList.slice(1, coffeeList.length).map((coffee) => {
+    return coffee.coffeTitle;
+  });
 
+  const total = totalarray.reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+  });
+  /* console.log("s", total);
+
+  console.log("1", coffeeList); */
+
+  const Display = () => {
+    return coffeeList.slice(1, coffeeList.length).map((item) => {
+      return (
+        <li className="item-list " key={item.coffeeId}>
+          <div className="item-textcontainer"></div>
+          <div>
+            <h3 className="item_title">{item.coffePrice}</h3>
+            <p className="item_price">{item.coffeTitle} kr</p>
+          </div>
+          <img src={Line} alt="line" />
+          <div className="pricearrows">
+            <div>
+              <div onClick={increment}>
+                <img className="arrows" src={upsideVector} alt="Upp arrow" />
+              </div>
+              <div>{count}</div>
+              <div onClick={decrement}>
+                <img className="arrows" src={Vector} alt="Down arrow" />
+              </div>
+            </div>
+          </div>
+        </li>
+      );
+    });
+  };
   return (
     <>
       <div className="background"></div>
@@ -36,30 +68,15 @@ const Cart = () => {
         <h1 className="cart-text">Din beställning</h1>
         <main className="cartmain">
           <article className="cartitem">
-            <div>
-              <h2>{beanTitle}</h2>
-              <h4>{beanPrice}kr</h4>
-            </div>
-            <img src={Line} alt="line" />
-            <div className="pricearrows">
-              <div>
-                <div onClick={increment}>
-                  <img className="arrows" src={upsideVector} alt="Upp arrow" />
-                </div>
-                <div>{count}</div>
-                <div onClick={decrement}>
-                  <img className="arrows" src={Vector} alt="Down arrow" />
-                </div>
-              </div>
-            </div>
+            <section>{Display()}</section>
           </article>
         </main>
 
         <section className="cartmain">
           <article className="cartitem">
             <div>
-              <h2>Title</h2>
-              <h4>text</h4>
+              <h2>Total</h2>
+              <h4>inkl moms + drönarleverans</h4>
             </div>
             <img src={Line} alt="line" />
             <div>{total} Kr</div>

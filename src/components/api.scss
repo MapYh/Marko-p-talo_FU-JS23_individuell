@@ -32,6 +32,8 @@
 
 .item-list {
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
 }
 
 .item_title_line {

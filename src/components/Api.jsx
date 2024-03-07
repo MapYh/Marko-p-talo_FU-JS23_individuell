@@ -13,7 +13,6 @@ const menuPageInfo = {
   logo: Bag,
   navLogo: Rectangle,
   plusSign: Plus,
-  numberOfItems: 7,
 };
 
 const Api = () => {
@@ -29,6 +28,8 @@ const Api = () => {
   const increment = useStore((state) => state.increment);
   const count = useStore((state) => state.count);
 
+  const setCoffeeList = useStore((state) => state.setCoffeeList);
+
   const fetchData = async () => {
     const url = "//airbean-api-xjlcn.ondigitalocean.app/api/beans/";
     const res = await fetch(url);
@@ -41,7 +42,7 @@ const Api = () => {
     fetchData();
   }, []);
 
-  const AddItemToCart = async (arg, argtwo) => {
+  const AddItemToCart = async (arg, argtwo, argthree) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -61,11 +62,12 @@ const Api = () => {
       requestOptions
     );
     const data = await response.json(response);
+    console.log(Data);
+    /* console.log(Item); */
+    setCoffeeList(arg, argtwo, argthree);
     setItem(data);
     setordernumber(data.orderNr);
     setEta(data.eta);
-    console.log(Data.title);
-    console.log(Data.price);
     setBeanTitle(arg);
     setBeanPrice(argtwo);
   };
@@ -86,7 +88,7 @@ const Api = () => {
           <div className="item-container">
             <div
               onClick={() => {
-                AddItemToCart(item.title, item.price);
+                AddItemToCart(item.title, item.price, item.id);
               }}
             >
               <section className="plussign  ellipseplus" onClick={increment}>
