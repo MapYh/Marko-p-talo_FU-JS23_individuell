@@ -6,11 +6,78 @@ export const useStore = create((set) => ({
   eta: 0,
   beanTitle: "",
   beanPrice: 0,
-  coffeeList: [{ coffePrice: 0, coffeTitle: "No coffee", coffeeId: "" }],
-  setCoffeeList: (coffePrice, coffeTitle, coffeeId) =>
+  coffeeList: [
+    {
+      coffeTitle: "No coffee",
+      coffePrice: 0,
+      coffeeId: "test",
+      coffeCount: 0,
+    },
+  ],
+  updateCount: [
+    {
+      coffeTitle: "No coffee",
+      coffePrice: 0,
+      coffeeId: "test",
+      coffeCount: 0,
+    },
+  ],
+
+  setCoffeeList: (coffeTitle, coffePrice, coffeeId, coffeCount) => {
+    /* if (typeof coffeTitle === "string") { */
+    /* if (coffeCount === 1) { */
+    /* coffeCount++; */
+    /* } */
+    /* } else { */
     set((state) => ({
-      coffeeList: [...state.coffeeList, { coffePrice, coffeTitle, coffeeId }],
+      coffeeList: [
+        ...state.coffeeList,
+        { coffeTitle, coffePrice, coffeeId, coffeCount },
+      ],
+    }));
+  },
+  /*  }, */
+  setupdateCount: (coffeCount) =>
+    set((state) => ({
+      coffeeList: [
+        {
+          ...state.coffeeList,
+          coffeCount: coffeCount + 1,
+        },
+      ],
     })),
+
+  deleteItem: (value) => {
+    set((oldValues) => {
+      return oldValues.filter((fruit) => fruit !== value);
+    });
+  },
+
+  /*  addItemToCart: (coffeTitle, coffePrice, coffeeId, coffeCount, coffeeList) => {
+    const itemExists = coffeeList.find(
+      (cartitem) => cartitem.coffeeId === coffeeList.coffeeId
+    );
+    if (itemExists) {
+      console.log("store already", itemExists);
+      if () {
+        console.log()
+      }
+    } else {
+      set((state) => ({
+        coffeeList: [
+          ...state.coffeeList,
+          { coffeTitle, coffePrice, coffeeId, coffeCount },
+        ],
+      }));
+    }
+ if (coffeeList.coffeCount === 0) {
+      set((state) => ({
+        items: state.coffeeList.filter((coffeeList) => coffeeList.id !== id),
+      }));
+    }
+  }, 
+  */
+
   setBeanTitle: (beanTitle) => set({ beanTitle }),
   setBeanPrice: (beanPrice) => set({ beanPrice }),
   setordernumber: (orderNr) => set({ orderNr }),

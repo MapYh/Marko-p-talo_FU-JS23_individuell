@@ -3,7 +3,7 @@
   width: 100%;
   padding: 1em;
   background-color: #f3e4e1;
-  height: 41.688rem;
+  height: 46.688rem;
   width: 23.438rem;
   display: flex;
   justify-content: space-between;
@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 }
 
 .menucontent {
@@ -102,4 +103,21 @@
 
 .footer {
   padding: 1rem;
+}
+
+.headerImg {
+  position: absolute;
+  left: 0rem;
+  z-index: 1;
+}
+
+.footerImg {
+  position: absolute;
+  left: 0rem;
+  top: 42.2rem;
+  z-index: 1;
+}
+
+.menu-main {
+  position: relative;
 }

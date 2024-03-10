@@ -1,7 +1,8 @@
-import Card from "./Card.jsx";
-import Logo from "../assets/logo.svg";
-
+import Card from "../Card/Card";
+import Logo from "../../assets/logo.svg";
+import header from "../../assets/header.svg";
 import { useNavigate } from "react-router-dom";
+import "./landing.scss";
 
 const landingPageInfo = {
   logo: Logo,
@@ -19,7 +20,9 @@ const Landing = () => {
 
   return (
     <>
-      <div onClick={() => navigateToNewPage()}>
+      <div onClick={() => navigateToNewPage()} className="main">
+        <img src={header} alt="" className="header" />
+        <img src={header} alt="" className="header-reverse" />
         <Card props={landingPageInfo} />
       </div>
     </>

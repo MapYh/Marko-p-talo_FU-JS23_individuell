@@ -1,9 +1,9 @@
 import "./cart.scss";
-import Line from "../assets/line.svg";
-import Vector from "../assets/vector.svg";
-import upsideVector from "../assets/upsideVector.svg";
-import Menu from "./Menu.jsx";
-import { useStore } from "../store.js";
+import Line from "../../assets/line.svg";
+import Vector from "../../assets/vector.svg";
+import upsideVector from "../../assets/upsideVector.svg";
+import Menu from "../Menu/Menu.jsx";
+import { useStore } from "../../store.js";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -14,41 +14,70 @@ const Cart = () => {
   };
 
   const increment = useStore((state) => state.increment);
+  const coffeeList = useStore((state) => state.coffeeList);
   const decrement = useStore((state) => state.decrement);
-  const count = useStore((state) => state.count);
+  const setCoffeeList = useStore((state) => state.setCoffeeList);
+  const deleteItem = useStore((state) => state.deleteItem);
+
   let totalarray = [0];
 
-  const coffeeList = useStore((state) => state.coffeeList);
-
   totalarray = coffeeList.slice(1, coffeeList.length).map((coffee) => {
-    return coffee.coffeTitle;
+    return coffee.coffePrice;
   });
 
   const total = totalarray.reduce(function (previousValue, currentValue) {
     return previousValue + currentValue;
   });
-  /* console.log("s", total);
 
-  console.log("1", coffeeList); */
+  console.log("coffeeList", coffeeList.slice(1, coffeeList.length));
 
   const Display = () => {
     return coffeeList.slice(1, coffeeList.length).map((item) => {
       return (
         <li className="item-list " key={item.coffeeId}>
           <div className="item-textcontainer"></div>
-          <div>
-            <h3 className="item_title">{item.coffePrice}</h3>
-            <p className="item_price">{item.coffeTitle} kr</p>
+          <div className="max-width">
+            <h3 className="item_title">{item.coffeTitle}</h3>
+            <p className="item_price">{item.coffePrice} kr</p>
           </div>
           <img src={Line} alt="line" />
           <div className="pricearrows">
             <div>
-              <div onClick={increment}>
-                <img className="arrows" src={upsideVector} alt="Upp arrow" />
+              <div
+                onClick={() => {
+                  setCoffeeList(
+                    item.coffeTitle,
+                    item.coffePrice,
+                    item.coffeeId,
+                    item.coffeCount
+                  );
+
+                  /*  console.log("test");
+                  console.log(
+                    "coffeeList",
+                    coffeeList.slice(1, coffeeList.length)
+                  ); */
+                }}
+              >
+                <div onClick={increment}>
+                  <img className="arrows" src={upsideVector} alt="Upp arrow" />
+                </div>
               </div>
-              <div>{count}</div>
-              <div onClick={decrement}>
-                <img className="arrows" src={Vector} alt="Down arrow" />
+              <div>{item.coffeCount}</div>
+              <div
+                onClick={() => {
+                  deleteItem(item.coffeTitle);
+
+                  /*  console.log("test");
+                  console.log(
+                    "coffeeList",
+                    coffeeList.slice(1, coffeeList.length)
+                  ); */
+                }}
+              >
+                <div onClick={decrement}>
+                  <img className="arrows" src={Vector} alt="Down arrow" />
+                </div>
               </div>
             </div>
           </div>

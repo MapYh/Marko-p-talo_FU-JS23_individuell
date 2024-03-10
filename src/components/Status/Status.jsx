@@ -1,7 +1,7 @@
 import "./status.scss";
-import DroneAndCup from "../assets/droneandcup.svg";
+import DroneAndCup from "../../assets/droneandcup.svg";
 import { useNavigate } from "react-router-dom";
-import { useStore } from "../store.js";
+import { useStore } from "../../store.js";
 const Orderstatus = () => {
   const eta = useStore((state) => state.eta);
   const orderNr = useStore((state) => state.orderNr);

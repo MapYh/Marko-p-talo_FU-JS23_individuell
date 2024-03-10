@@ -1,4 +1,5 @@
 .cartcard {
+  overflow: auto;
   position: fixed;
   padding: 2em;
   background-color: #ffffff;
@@ -45,17 +46,24 @@
   border-radius: 2px;
 }
 
+.max-width {
+  max-width: 118px;
+  min-width: 118px;
+}
+
 .cartmain {
+  max-width: 280px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: start;
   flex-direction: column;
 }
 
 .cartitem {
+  max-width: 320px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -78,7 +86,7 @@
 .background {
   position: fixed;
   display: block;
-  height: 41.688rem;
+  height: 46.688rem;
   width: 23.438rem;
   left: 29%;
   top: 26.5%;

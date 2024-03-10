@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Bag from "../assets/bag.svg";
-import Rectangle from "../assets/rectangle.svg";
-import Plus from "../assets/plus.svg";
-import Line from "../assets/line.svg";
+import Bag from "../../assets/bag.svg";
+import Rectangle from "../../assets/rectangle.svg";
+import Plus from "../../assets/plus.svg";
+import Line from "../../assets/line.svg";
 import "./api.scss";
-import "./menu.scss";
-import { useStore } from "../store.js";
+import "../Menu/Menu";
+import { useStore } from "../../store.js";
 
 const menuPageInfo = {
   logo: Bag,
@@ -16,24 +16,28 @@ const menuPageInfo = {
 };
 
 const Api = () => {
-  const [Data, setData] = useState([]);
-  const [Item, setItem] = useState([]);
+  const [Data, setData] = useState([]); //kusta av alla kaffe
+  const [Item, setItem] = useState([]); //eta, ordernummer
 
   const setEta = useStore((state) => state.setEta);
   const setordernumber = useStore((state) => state.setordernumber);
 
   const setBeanTitle = useStore((state) => state.setBeanTitle);
   const setBeanPrice = useStore((state) => state.setBeanPrice);
-
+  const order = useStore((state) => state.order);
+  const addToCart = useStore((state) => state.addToCart);
   const increment = useStore((state) => state.increment);
-  const count = useStore((state) => state.count);
 
+  const count = useStore((state) => state.count);
+  const coffeeList = useStore((state) => state.coffeeList);
+  /*   const addItemToCart = useStore((state) => state.addItemToCart); */
   const setCoffeeList = useStore((state) => state.setCoffeeList);
 
   const fetchData = async () => {
     const url = "//airbean-api-xjlcn.ondigitalocean.app/api/beans/";
     const res = await fetch(url);
     const d = await res.json();
+    console.log(d.menu);
     if (JSON.stringify(d.menu) !== JSON.stringify(Data)) {
       setData(d.menu);
     }
@@ -42,7 +46,7 @@ const Api = () => {
     fetchData();
   }, []);
 
-  const AddItemToCart = async (arg, argtwo, argthree) => {
+  const AddItemToCart = async (arg, argtwo, argthree, argfour) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -61,34 +65,42 @@ const Api = () => {
       " https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order",
       requestOptions
     );
-    const data = await response.json(response);
-    console.log(Data);
-    /* console.log(Item); */
-    setCoffeeList(arg, argtwo, argthree);
+    const data = await response.json(response); //eta
+    console.log("1", arg);
+    console.log("2", argtwo);
+    console.log("3", argthree);
+    console.log("4", argfour);
+
+    setCoffeeList(arg, argtwo, argthree, argfour);
     setItem(data);
     setordernumber(data.orderNr);
     setEta(data.eta);
     setBeanTitle(arg);
     setBeanPrice(argtwo);
+
+    console.log("api", order);
+    /* setCoffeeList(order); */
   };
+
   const navigate = useNavigate();
   const navigateToCart = () => {
     // use the navigate function to navigate to /Menu
     navigate("/cart");
   };
+
   const navigateToNewPage = () => {
     // use the navigate function to navigate to /Menu
     navigate("/Nav");
   };
 
   const Display = () => {
-    return Data.slice(0, Data.length - 2).map((item) => {
+    return Data.slice(0, Data.length).map((item) => {
       return (
         <li className="item-list " key={item.id}>
           <div className="item-container">
             <div
               onClick={() => {
-                AddItemToCart(item.title, item.price, item.id);
+                AddItemToCart(item.title, item.price, item.id, 1);
               }}
             >
               <section className="plussign  ellipseplus" onClick={increment}>

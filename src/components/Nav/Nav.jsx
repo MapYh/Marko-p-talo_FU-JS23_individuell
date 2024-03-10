@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import ClosingCross from "../assets/closingx.svg";
-import Rectangle from "../assets/rectanglewhite.svg";
+import ClosingCross from "../../assets/closingx.svg";
+import Rectangle from "../../assets/rectanglewhite.svg";
 import "./Nav.scss";
 
 const logos = {

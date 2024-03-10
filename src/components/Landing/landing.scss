@@ -1,0 +1,16 @@
+.header {
+  position: absolute;
+
+  left: 14.5rem;
+}
+
+.header-reverse {
+  position: absolute;
+  transform: rotate(-180deg);
+
+  right: 14.5rem;
+}
+
+.main {
+  position: relative;
+}

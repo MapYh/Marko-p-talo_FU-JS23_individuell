@@ -1,6 +1,8 @@
 import "./about.scss";
-import Rectangle from "../assets/rectangle.svg";
+import Rectangle from "../../assets/rectangle.svg";
 import { useNavigate } from "react-router-dom";
+import FooterImg from "../../assets/header-footer.svg";
+import HeaderImg from "../../assets/header-header.svg";
 
 const About = () => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const About = () => {
   return (
     <>
       <article className="aboutcard">
+        <img src={HeaderImg} alt="" className="aboutheaderImg" />
         <header className="aboutheader">
           <div className="aboutbag" onClick={() => navigateToNewPage()}>
             <img className="imgRectangle" src={Rectangle} alt="navicon" />
@@ -53,9 +56,10 @@ const About = () => {
         <footer className="aboutfooter">
           <div className="aboutfooterimg"> </div>
           <figcaption>Eva Cortado</figcaption>
-          <img />
+          {/* <img /> */}
           <figcaption>VD & Grundare</figcaption>
         </footer>
+        <img src={FooterImg} alt="" className="aboutfooterImgleaves" />
       </article>
     </>
   );
