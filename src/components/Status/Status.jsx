@@ -3,13 +3,15 @@ import DroneAndCup from "../../assets/droneandcup.svg";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../store.js";
 const Orderstatus = () => {
+  const resetCart = useStore((state) => state.resetCart);
   const eta = useStore((state) => state.eta);
-  const orderNr = useStore((state) => state.orderNumber);
+  const orderNr = useStore((state) => state.orderNr);
   console.log(eta);
   console.log(orderNr);
   const navigate = useNavigate();
 
   const navigateToNewPage = () => {
+    resetCart();
     // use the navigate function to navigate to /Menu
     navigate("/Nav");
   };

@@ -9,24 +9,32 @@ export const useStore = create((set) => ({
   setOrderNr: (orderNr) => set({ orderNr }),
   setEta: (eta) => set({ eta }),
 
-  addToCart: (item) => {
+  resetCart: () => set({ cart: [], count: 0, totalSum: 0 }), //När man backar ur köpet tillbaka till menun ska korgen tömmas.
+
+  addcoffeeToCart: (item) => {
     set((state) => {
       let newCart = [...state.cart];
+      console.log(newCart);
       let index = newCart.findIndex((cartItem) => cartItem.id === item.id);
 
       if (index !== -1) {
-        newCart[index].qty += 1;
-        newCart[index].itemSum = newCart[index].qty * newCart[index].price;
+        //betyder att ett id finns i korgen.
+        newCart[index].qty += 1; //Plussa på produkten.
+        newCart[index].itemSum = newCart[index].qty * newCart[index].price; //Räkna ut nya priset.
       } else {
-        newCart.push({ ...item, qty: 1, itemSum: item.price * 1 });
+        //Annars om produkten inte finns i korgen sedan tidigare.
+        newCart.push({ ...item, qty: 1, itemSum: item.price * 1 }); // Lägg till den i korgen.
       }
 
       let totalCount = newCart.reduce(
+        //Summera antalet produkter i korgen in i en variabel.
         (total, cartItem) => total + cartItem.qty,
         0
       );
 
       let totalSum = newCart.reduce(
+        //Summera kostanderna i korgen in i en variabel.
+
         (total, cartItem) => total + cartItem.itemSum,
         0
       );
@@ -36,7 +44,6 @@ export const useStore = create((set) => ({
   },
 
   increaseQty: (id) => {
-    console.log("inc");
     return set((state) => {
       let newCart = [...state.cart];
       let index = newCart.findIndex((cartItem) => cartItem.id === id);
@@ -60,7 +67,6 @@ export const useStore = create((set) => ({
   },
 
   decreaseQty: (id) => {
-    console.log("dec");
     return set((state) => {
       let newCart = [...state.cart];
       let index = newCart.findIndex((cartItem) => cartItem.id === id);

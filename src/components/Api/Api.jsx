@@ -16,13 +16,13 @@ const menuPageInfo = {
 };
 
 const Api = () => {
-  const [Data, setData] = useState([]);
+  const [Data, setData] = useState([]); //kaffe sorter dvs menun.
   const [Item, setItem] = useState([]); //eta, ordernummer
   const increaseQuantity = useStore((state) => state.increaseQuantity);
 
   const count = useStore((state) => state.count);
-  const addToCart = useStore((state) => state.addToCart);
-  const setorderNr = useStore((state) => state.setorderNr);
+  const addcoffeeToCart = useStore((state) => state.addcoffeeToCart);
+  const setOrderNr = useStore((state) => state.setOrderNr);
   const setEta = useStore((state) => state.setEta);
 
   const fetchData = async () => {
@@ -58,15 +58,12 @@ const Api = () => {
       requestOptions
     );
     const data = await response.json(response); //eta
-    /* console.log("1", title);
-    console.log("2", price);
-    console.log("5", Item); */
-
+    /* console.log("1", Item);
+    console.log("2", Item.orderNr);
+    console.log("3", Item.eta); */
     setItem(data);
-    setorderNr(Item.orderNr);
+    setOrderNr(Item.orderNr);
     setEta(Item.eta);
-
-    /*  console.log("api", Item); */
   };
 
   const navigate = useNavigate();
@@ -87,7 +84,7 @@ const Api = () => {
           <div className="item-container">
             <div
               onClick={() => {
-                addToCart(item);
+                addcoffeeToCart(item);
               }}
             >
               <div
