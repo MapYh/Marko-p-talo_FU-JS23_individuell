@@ -13,8 +13,8 @@ const Cart = () => {
     navigate("/Status");
   };
   const cart = useStore((state) => state.cart);
-  const increaseQuantity = useStore((state) => state.increaseQuantity);
-  const decreaseQuantity = useStore((state) => state.decreaseQuantity);
+  const increaseQty = useStore((state) => state.increaseQty);
+  const decreaseQty = useStore((state) => state.decreaseQty);
   const totalSum = useStore((state) => state.totalSum);
 
   console.log("cart", cart);
@@ -31,13 +31,13 @@ const Cart = () => {
           <img src={Line} alt="line" />
           <div className="pricearrows">
             <div>
-              <div onClick={() => increaseQuantity(item.id)}>
+              <div onClick={() => increaseQty(item.id)}>
                 <img className="arrows" src={upsideVector} alt="Upp arrow" />
               </div>
             </div>
-            <div>{item.quantity}</div>
+            <div>{item.qty}</div>
 
-            <div onClick={() => decreaseQuantity(item.id)}>
+            <div onClick={() => decreaseQty(item.id)}>
               <img className="arrows" src={Vector} alt="Down arrow" />
             </div>
           </div>

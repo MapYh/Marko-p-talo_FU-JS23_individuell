@@ -22,7 +22,7 @@ const Api = () => {
 
   const count = useStore((state) => state.count);
   const addToCart = useStore((state) => state.addToCart);
-  const setOrderNumber = useStore((state) => state.setOrderNumber);
+  const setorderNr = useStore((state) => state.setorderNr);
   const setEta = useStore((state) => state.setEta);
 
   const fetchData = async () => {
@@ -58,15 +58,15 @@ const Api = () => {
       requestOptions
     );
     const data = await response.json(response); //eta
-    console.log("1", title);
+    /* console.log("1", title);
     console.log("2", price);
-    console.log("5", Item);
+    console.log("5", Item); */
 
     setItem(data);
-    setOrderNumber(Item.orderNr);
+    setorderNr(Item.orderNr);
     setEta(Item.eta);
 
-    console.log("api", Item);
+    /*  console.log("api", Item); */
   };
 
   const navigate = useNavigate();

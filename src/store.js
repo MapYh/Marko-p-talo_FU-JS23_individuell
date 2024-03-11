@@ -4,90 +4,86 @@ export const useStore = create((set) => ({
   cart: [],
   count: 0,
   totalSum: 0,
-  orderNumber: "",
+  orderNr: "",
   eta: 0,
-  setOrderNumber: (orderNumber) => set({ orderNumber }),
+  setOrderNr: (orderNr) => set({ orderNr }),
   setEta: (eta) => set({ eta }),
-  resetCart: () => set({ cart: [], count: 0, totalSum: 0 }),
 
   addToCart: (item) => {
     set((state) => {
-      let updatedCart = [...state.cart];
-      let index = updatedCart.findIndex((cartItem) => cartItem.id === item.id);
+      let newCart = [...state.cart];
+      let index = newCart.findIndex((cartItem) => cartItem.id === item.id);
 
       if (index !== -1) {
-        updatedCart[index].quantity += 1;
-        updatedCart[index].itemSum =
-          updatedCart[index].quantity * updatedCart[index].price;
+        newCart[index].qty += 1;
+        newCart[index].itemSum = newCart[index].qty * newCart[index].price;
       } else {
-        updatedCart.push({ ...item, quantity: 1, itemSum: item.price * 1 });
+        newCart.push({ ...item, qty: 1, itemSum: item.price * 1 });
       }
 
-      let totalCount = updatedCart.reduce(
-        (total, cartItem) => total + cartItem.quantity,
+      let totalCount = newCart.reduce(
+        (total, cartItem) => total + cartItem.qty,
         0
       );
 
-      let totalSum = updatedCart.reduce(
+      let totalSum = newCart.reduce(
         (total, cartItem) => total + cartItem.itemSum,
         0
       );
 
-      return { cart: updatedCart, count: totalCount, totalSum: totalSum };
+      return { cart: newCart, count: totalCount, totalSum: totalSum };
     });
   },
 
-  increaseQuantity: (id) => {
+  increaseQty: (id) => {
     console.log("inc");
     return set((state) => {
-      let updatedCart = [...state.cart];
-      let index = updatedCart.findIndex((cartItem) => cartItem.id === id);
+      let newCart = [...state.cart];
+      let index = newCart.findIndex((cartItem) => cartItem.id === id);
       if (index !== -1) {
-        updatedCart[index].quantity += 1;
-        updatedCart[index].itemSum =
-          updatedCart[index].quantity * updatedCart[index].price;
+        newCart[index].qty += 1;
+        newCart[index].itemSum = newCart[index].qty * newCart[index].price;
       }
 
-      let totalCount = updatedCart.reduce(
-        (total, cartItem) => total + cartItem.quantity,
+      let totalCount = newCart.reduce(
+        (total, cartItem) => total + cartItem.qty,
         0
       );
 
-      let totalSum = updatedCart.reduce(
+      let totalSum = newCart.reduce(
         (total, cartItem) => total + cartItem.itemSum,
         0
       );
 
-      return { cart: updatedCart, cartCount: totalCount, totalSum: totalSum };
+      return { cart: newCart, cartCount: totalCount, totalSum: totalSum };
     });
   },
 
-  decreaseQuantity: (id) => {
+  decreaseQty: (id) => {
     console.log("dec");
     return set((state) => {
-      let updatedCart = [...state.cart];
-      let index = updatedCart.findIndex((cartItem) => cartItem.id === id);
+      let newCart = [...state.cart];
+      let index = newCart.findIndex((cartItem) => cartItem.id === id);
       if (index !== -1) {
-        updatedCart[index].quantity -= 1;
-        if (updatedCart[index].quantity === 0) {
-          updatedCart.splice(index, 1);
+        newCart[index].qty -= 1;
+        if (newCart[index].qty === 0) {
+          newCart.splice(index, 1);
         } else {
-          updatedCart[index].itemSum =
-            updatedCart[index].quantity * updatedCart[index].price;
+          newCart[index].itemSum = newCart[index].qty * newCart[index].price;
         }
       }
 
-      let totalCount = updatedCart.reduce(
-        (total, cartItem) => total + cartItem.quantity,
+      let totalCount = newCart.reduce(
+        (total, cartItem) => total + cartItem.qty,
         0
       );
 
-      let totalSum = updatedCart.reduce(
+      let totalSum = newCart.reduce(
         (total, cartItem) => total + cartItem.itemSum,
         0
       );
 
-      return { cart: updatedCart, cartCount: totalCount, totalSum: totalSum };
+      return { cart: newCart, cartCount: totalCount, totalSum: totalSum };
     });
   },
 }));
