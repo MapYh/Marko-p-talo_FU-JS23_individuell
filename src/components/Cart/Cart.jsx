@@ -12,73 +12,33 @@ const Cart = () => {
     // use the navigate function to navigate to /Menu
     navigate("/Status");
   };
+  const cart = useStore((state) => state.cart);
+  const increaseQuantity = useStore((state) => state.increaseQuantity);
+  const decreaseQuantity = useStore((state) => state.decreaseQuantity);
+  const totalSum = useStore((state) => state.totalSum);
 
-  const increment = useStore((state) => state.increment);
-  const coffeeList = useStore((state) => state.coffeeList);
-  const decrement = useStore((state) => state.decrement);
-  const setCoffeeList = useStore((state) => state.setCoffeeList);
-  const deleteItem = useStore((state) => state.deleteItem);
-
-  let totalarray = [0];
-
-  totalarray = coffeeList.slice(1, coffeeList.length).map((coffee) => {
-    return coffee.coffePrice;
-  });
-
-  const total = totalarray.reduce(function (previousValue, currentValue) {
-    return previousValue + currentValue;
-  });
-
-  console.log("coffeeList", coffeeList.slice(1, coffeeList.length));
+  console.log("cart", cart);
 
   const Display = () => {
-    return coffeeList.slice(1, coffeeList.length).map((item) => {
+    return cart.map((item) => {
       return (
-        <li className="item-list " key={item.coffeeId}>
+        <li className="item-list " key={item.id}>
           <div className="item-textcontainer"></div>
           <div className="max-width">
-            <h3 className="item_title">{item.coffeTitle}</h3>
-            <p className="item_price">{item.coffePrice} kr</p>
+            <h3 className="item_title">{item.title}</h3>
+            <p className="item_price">{item.price} kr</p>
           </div>
           <img src={Line} alt="line" />
           <div className="pricearrows">
             <div>
-              <div
-                onClick={() => {
-                  setCoffeeList(
-                    item.coffeTitle,
-                    item.coffePrice,
-                    item.coffeeId,
-                    item.coffeCount
-                  );
-
-                  /*  console.log("test");
-                  console.log(
-                    "coffeeList",
-                    coffeeList.slice(1, coffeeList.length)
-                  ); */
-                }}
-              >
-                <div onClick={increment}>
-                  <img className="arrows" src={upsideVector} alt="Upp arrow" />
-                </div>
+              <div onClick={() => increaseQuantity(item.id)}>
+                <img className="arrows" src={upsideVector} alt="Upp arrow" />
               </div>
-              <div>{item.coffeCount}</div>
-              <div
-                onClick={() => {
-                  deleteItem(item.coffeTitle);
+            </div>
+            <div>{item.quantity}</div>
 
-                  /*  console.log("test");
-                  console.log(
-                    "coffeeList",
-                    coffeeList.slice(1, coffeeList.length)
-                  ); */
-                }}
-              >
-                <div onClick={decrement}>
-                  <img className="arrows" src={Vector} alt="Down arrow" />
-                </div>
-              </div>
+            <div onClick={() => decreaseQuantity(item.id)}>
+              <img className="arrows" src={Vector} alt="Down arrow" />
             </div>
           </div>
         </li>
@@ -108,7 +68,7 @@ const Cart = () => {
               <h4>inkl moms + drönarleverans</h4>
             </div>
             <img src={Line} alt="line" />
-            <div>{total} Kr</div>
+            <div>{totalSum} Kr</div>
           </article>
         </section>
 

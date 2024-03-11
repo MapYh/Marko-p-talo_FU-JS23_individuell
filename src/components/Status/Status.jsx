@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../../store.js";
 const Orderstatus = () => {
   const eta = useStore((state) => state.eta);
-  const orderNr = useStore((state) => state.orderNr);
+  const orderNr = useStore((state) => state.orderNumber);
+  console.log(eta);
+  console.log(orderNr);
   const navigate = useNavigate();
 
   const navigateToNewPage = () => {

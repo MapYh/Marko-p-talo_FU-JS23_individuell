@@ -16,28 +16,20 @@ const menuPageInfo = {
 };
 
 const Api = () => {
-  const [Data, setData] = useState([]); //kusta av alla kaffe
+  const [Data, setData] = useState([]);
   const [Item, setItem] = useState([]); //eta, ordernummer
-
-  const setEta = useStore((state) => state.setEta);
-  const setordernumber = useStore((state) => state.setordernumber);
-
-  const setBeanTitle = useStore((state) => state.setBeanTitle);
-  const setBeanPrice = useStore((state) => state.setBeanPrice);
-  const order = useStore((state) => state.order);
-  const addToCart = useStore((state) => state.addToCart);
-  const increment = useStore((state) => state.increment);
+  const increaseQuantity = useStore((state) => state.increaseQuantity);
 
   const count = useStore((state) => state.count);
-  const coffeeList = useStore((state) => state.coffeeList);
-  /*   const addItemToCart = useStore((state) => state.addItemToCart); */
-  const setCoffeeList = useStore((state) => state.setCoffeeList);
+  const addToCart = useStore((state) => state.addToCart);
+  const setOrderNumber = useStore((state) => state.setOrderNumber);
+  const setEta = useStore((state) => state.setEta);
 
   const fetchData = async () => {
     const url = "//airbean-api-xjlcn.ondigitalocean.app/api/beans/";
     const res = await fetch(url);
     const d = await res.json();
-    console.log(d.menu);
+
     if (JSON.stringify(d.menu) !== JSON.stringify(Data)) {
       setData(d.menu);
     }
@@ -46,7 +38,7 @@ const Api = () => {
     fetchData();
   }, []);
 
-  const AddItemToCart = async (arg, argtwo, argthree, argfour) => {
+  const setOrderNrEta = async (title, price) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -54,8 +46,8 @@ const Api = () => {
         details: {
           order: [
             {
-              name: arg,
-              price: argtwo,
+              name: title,
+              price: price,
             },
           ],
         },
@@ -66,20 +58,15 @@ const Api = () => {
       requestOptions
     );
     const data = await response.json(response); //eta
-    console.log("1", arg);
-    console.log("2", argtwo);
-    console.log("3", argthree);
-    console.log("4", argfour);
+    console.log("1", title);
+    console.log("2", price);
+    console.log("5", Item);
 
-    setCoffeeList(arg, argtwo, argthree, argfour);
     setItem(data);
-    setordernumber(data.orderNr);
-    setEta(data.eta);
-    setBeanTitle(arg);
-    setBeanPrice(argtwo);
+    setOrderNumber(Item.orderNr);
+    setEta(Item.eta);
 
-    console.log("api", order);
-    /* setCoffeeList(order); */
+    console.log("api", Item);
   };
 
   const navigate = useNavigate();
@@ -100,12 +87,25 @@ const Api = () => {
           <div className="item-container">
             <div
               onClick={() => {
-                AddItemToCart(item.title, item.price, item.id, 1);
+                addToCart(item);
               }}
             >
-              <section className="plussign  ellipseplus" onClick={increment}>
-                <img className="add-icon" src={menuPageInfo.plusSign} alt="" />
-              </section>
+              <div
+                onClick={() => {
+                  setOrderNrEta(item.title, item.price);
+                }}
+              >
+                <section
+                  className="plussign  ellipseplus"
+                  onClick={increaseQuantity}
+                >
+                  <img
+                    className="add-icon"
+                    src={menuPageInfo.plusSign}
+                    alt=""
+                  />
+                </section>
+              </div>
             </div>
             <div className="item-textcontainer">
               <section className="item_title_line">
