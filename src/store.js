@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 export const useStore = create((set) => ({
   cart: [],
+  Users: [],
   count: 0,
   totalSum: 0,
   orderNr: "",
@@ -22,7 +23,7 @@ export const useStore = create((set) => ({
         newCart[index].qty += 1; //Plussa på produkten.
         newCart[index].itemSum = newCart[index].qty * newCart[index].price; //Räkna ut nya priset.
       } else {
-        //Annars om produkten inte finns i korgen sedan tidigare.
+        //Annars om produkten inte finns i korgen sedan tidigare lägg till produkten i korgen.
         newCart.push({ ...item, qty: 1, itemSum: item.price * 1 }); // Lägg till den i korgen.
       }
 
@@ -90,6 +91,20 @@ export const useStore = create((set) => ({
       );
 
       return { cart: newCart, cartCount: totalCount, totalSum: totalSum };
+    });
+  },
+
+  addUser: (item) => {
+    set((state) => {
+      let newUser = [...state.cart];
+      let index = newUser.findIndex((cartItem) => cartItem.id === item.id);
+
+      if (index !== -1) {
+        console.log("User already exists");
+      } else {
+        //Annars om produkten inte finns i korgen sedan tidigare lägg till produkten i korgen.
+        newUser.push({ ...item, name: "", Email: "" }); // Lägg till den i korgen.
+      }
     });
   },
 }));

@@ -1,0 +1,81 @@
+.profile_pic-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: "white";
+  margin-bottom: 4rem;
+}
+
+.profile_pic-ellipse {
+  border-radius: 50%;
+
+  width: 5.875rem;
+  height: 5.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  /* Airbean - pink */
+  background: #f3e4e1;
+}
+
+.profile_pic-pic {
+  background-size: contain;
+  background-image: url("../../assets/profile-pic.svg");
+  width: 4.625rem;
+  height: 4.625rem;
+  border-radius: 3.125rem;
+  z-index: 2;
+}
+.profile_pic-styling {
+  color: white;
+}
+
+.profile_pic-name {
+  font-family: PT Serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.profile_pic-under-name-text {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.order_pic-history {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+}
+
+.profile_pic-order-styling {
+  font-family: PT Serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.625rem;
+  letter-spacing: 0em;
+  /* text-align: left; */
+  color: white;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 23.438rem;
+  height: 41.688rem;
+  padding: 2rem;
+}
