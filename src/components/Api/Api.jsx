@@ -18,7 +18,7 @@ const menuPageInfo = {
 const Api = () => {
   const [Data, setData] = useState([]); //kaffe sorter dvs menun.
   const [Item, setItem] = useState([]); //eta, ordernummer
-  const increaseQuantity = useStore((state) => state.increaseQuantity);
+  const increaseqty = useStore((state) => state.increaseqty);
 
   const count = useStore((state) => state.count);
   const addcoffeeToCart = useStore((state) => state.addcoffeeToCart);
@@ -58,9 +58,7 @@ const Api = () => {
       requestOptions
     );
     const data = await response.json(response); //eta
-    /* console.log("1", Item);
-    console.log("2", Item.orderNr);
-    console.log("3", Item.eta); */
+
     setItem(data);
     setOrderNr(Item.orderNr);
     setEta(Item.eta);
@@ -94,7 +92,7 @@ const Api = () => {
               >
                 <section
                   className="plussign  ellipseplus"
-                  onClick={increaseQuantity}
+                  onClick={increaseqty}
                 >
                   <img
                     className="add-icon"

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.headerImg {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  z-index: 1;
+}
+
+.menu-main {
+  position: relative;
+}
+
+.backgroundcard {
+  position: relative;
+  /* width: 100%; */
+  padding: 1rem;
+  background-color: #2f2926;
+  height: 41.688rem;
+  width: 23.438rem;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileheader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.background {
+  position: fixed;
+  display: block;
+  height: 35.361rem;
+  width: 21.313rem;
+  left: 29%;
+  top: 26.5%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profileBtn {
+  width: 248px;
+  height: 55px;
+  color: white;
+
+  background: #2f2926;
+  border-radius: 50px;
+  //Profilebtn text styling
+  /* Take my money! */
+
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+
+  color: #ffffff;
+}
+.profileSmallBtn {
+  border-radius: 1rem;
+  width: 1rem;
+  height: 1rem;
+
+  /* Airbean - dark green */
+  background: #0e927d;
+}
+
+.profile-button-section {
+  display: flex;
+  /* justify-content: center; */
+  align-items: start;
+
+  padding: 1rem;
+}
+
+.form-section {
+  width: 310px;
+  height: 48px;
+  border: 1px solid #2f2926;
+  border-radius: 6px;
+  background-color: #f3e4e1;
+}
+
+.logo-ellipse {
+  background-color: #dbcecb;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.profilebagleft {
+  flex-direction: column;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  box-shadow: 0px 0px 16px rgba(247, 247, 247, 0.12);
+}
+
+.profileImgRectangle {
+  margin: 0.1rem;
+}
+
+.profile-cart-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 35.361rem;
+  width: 21.313rem;
+  background-color: #f3e4e1;
+  z-index: 3;
+  border-radius: 0.1rem;
+}
+
+.forms {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
