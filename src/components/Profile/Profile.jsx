@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.scss";
 import Logo from "../../assets/logo-gray.svg";
 import { useState } from "react";
-/* import { useStore } from "../../store.ts"; */
 import Profile_pic from "../Profile/Profile_pic";
 
 const Profile = () => {
@@ -19,16 +18,6 @@ const Profile = () => {
   function ToggleClass() {
     setActive(!isActive);
   }
-
-  /*   const Display = () => {
-    return .map((item) => {
-      return (
-        <li className="item-list " key={item.id}>
-          
-        </li>
-      );
-    });
-  }; */
 
   return (
     <>

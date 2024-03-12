@@ -1,8 +1,9 @@
 import { create } from "zustand";
 
 export const useStore = create((set) => ({
-  cart: [],
   Users: [],
+
+  cart: [],
   count: 0,
   totalSum: 0,
   orderNr: "",

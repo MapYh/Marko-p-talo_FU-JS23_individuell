@@ -76,6 +76,25 @@
   flex-direction: column;
 
   width: 23.438rem;
-  height: 41.688rem;
+  height: 34.688rem;
   padding: 2rem;
+}
+
+.user-totalt-spenderat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  width: 315px;
+  height: 28.5px;
+}
+
+.user-line {
+  width: 19.688rem;
+  transform: rotation(-0 deg);
+}
+
+.user-line-faded {
+  width: 19.688rem;
+  transform: rotation(-0 deg);
 }
