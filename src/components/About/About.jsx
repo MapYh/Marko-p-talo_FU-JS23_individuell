@@ -7,7 +7,7 @@ import HeaderImg from "../../assets/header-header.svg";
 const About = () => {
   const navigate = useNavigate();
   const navigateToNewPage = () => {
-    // use the navigate function to navigate to /Menu
+    // Navigera till nav sidan.
     navigate("/Nav");
   };
 
@@ -56,7 +56,7 @@ const About = () => {
         <footer className="aboutfooter">
           <div className="aboutfooterimg"> </div>
           <figcaption>Eva Cortado</figcaption>
-          {/* <img /> */}
+
           <figcaption>VD & Grundare</figcaption>
         </footer>
         <img src={FooterImg} alt="" className="aboutfooterImgleaves" />

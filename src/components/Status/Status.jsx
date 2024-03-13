@@ -14,7 +14,7 @@ const Orderstatus = () => {
     resetCart();
     seteta(0);
     setorderNr("Gör en beställning!");
-    // use the navigate function to navigate to /Menu
+    // Navigera till nav sidan.
     navigate("/Nav");
   };
 

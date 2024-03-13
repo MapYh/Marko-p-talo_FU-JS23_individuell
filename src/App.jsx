@@ -5,7 +5,7 @@ import Landing from "./components//Landing/Landing.jsx";
 import Menu from "./components/Menu/Menu.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import Status from "./components/Status/Status.jsx";
-import Profile from "./components/Profile/Profile";
+/* import Profile from "./components/Profile/Profile"; */
 import About from "./components/About/About.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 

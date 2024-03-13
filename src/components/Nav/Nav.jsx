@@ -1,25 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import ClosingCross from "../../assets/closingx.svg";
+import ClosingX from "../../assets/closingx.svg";
 import Rectangle from "../../assets/rectanglewhite.svg";
 import "./Nav.scss";
 
 const logos = {
-  closingCross: ClosingCross,
+  ClosingX: ClosingX,
 };
 
 const Nav = () => {
   const navigate = useNavigate();
 
   const navigateToMenu = () => {
-    // use the navigate function to navigate to /Menu
+    // Navigera till menu sidan.
     navigate("/menu");
   };
 
   const navigateToLandingPage = () => {
+    // Navigera till hem sidan.
     navigate("/");
   };
 
   const navigateToOurCoffee = () => {
+    // Navigera till about sidan.
     navigate("/about");
   };
 
@@ -35,7 +37,7 @@ const Nav = () => {
       <header className="navheader ">
         <div className="closingellipse">
           <img
-            src={logos.closingCross}
+            src={logos.ClosingX}
             onClick={() => navigateToLandingPage()}
           ></img>
         </div>

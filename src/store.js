@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useStore = create((set) => ({
-  Users: [],
+  /* Users: [], */
 
   cart: [],
   count: 0,
@@ -18,11 +18,12 @@ export const useStore = create((set) => ({
       const newCart = [...state.cart];
       console.log(newCart);
       const index = newCart.findIndex((cartItem) => cartItem.id === item.id);
-
+      //betyder att ett id finns i korgen.
       if (index !== -1) {
-        //betyder att ett id finns i korgen.
-        newCart[index].qty += 1; //Plussa på produkten.
-        newCart[index].itemSum = newCart[index].qty * newCart[index].price; //Räkna ut nya priset.
+        //Plussa på produkten.
+        newCart[index].qty += 1;
+        //Räkna ut nya priset.
+        newCart[index].itemSum = newCart[index].qty * newCart[index].price;
       } else {
         //Annars om produkten inte finns i korgen sedan tidigare lägg till produkten i korgen.
         newCart.push({ ...item, qty: 1, itemSum: item.price * 1 }); // Lägg till den i korgen.
@@ -36,7 +37,6 @@ export const useStore = create((set) => ({
 
       let totalSum = newCart.reduce(
         //Summera kostanderna i korgen in i en variabel.
-
         (total, cartItem) => total + cartItem.itemSum,
         0
       );
@@ -95,7 +95,7 @@ export const useStore = create((set) => ({
     });
   },
 
-  addUser: (item) => {
+  /*  addUser: (item) => {
     set((state) => {
       let newUser = [...state.user];
       let index = newUser.findIndex((user) => user.id === item.id);
@@ -103,8 +103,8 @@ export const useStore = create((set) => ({
       if (index !== -1) {
         console.log("User already exists");
       } else {
-        newUser.push({ ...item, Name: item.name, Email: item.email });
+        newUser.push({ ...item, name: "", Email: "" });
       }
     });
-  },
+  }, */
 }));

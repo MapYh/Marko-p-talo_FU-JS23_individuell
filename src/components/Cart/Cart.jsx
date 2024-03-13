@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const navigate = useNavigate();
   const navigateToStatusPage = () => {
-    // use the navigate function to navigate to /Menu
+    // Navigera till Status sidan.
     navigate("/Status");
   };
   const cart = useStore((state) => state.cart);

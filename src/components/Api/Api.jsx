@@ -66,12 +66,12 @@ const Api = () => {
 
   const navigate = useNavigate();
   const navigateToCart = () => {
-    // use the navigate function to navigate to /Menu
+    // Navigera till varukorgen.
     navigate("/cart");
   };
 
   const navigateToNewPage = () => {
-    // use the navigate function to navigate to /Menu
+    // Navigera till Nav.
     navigate("/Nav");
   };
 
