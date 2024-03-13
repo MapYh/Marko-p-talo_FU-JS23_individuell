@@ -15,9 +15,9 @@ export const useStore = create((set) => ({
 
   addcoffeeToCart: (item) => {
     set((state) => {
-      let newCart = [...state.cart];
+      const newCart = [...state.cart];
       console.log(newCart);
-      let index = newCart.findIndex((cartItem) => cartItem.id === item.id);
+      const index = newCart.findIndex((cartItem) => cartItem.id === item.id);
 
       if (index !== -1) {
         //betyder att ett id finns i korgen.
@@ -97,14 +97,13 @@ export const useStore = create((set) => ({
 
   addUser: (item) => {
     set((state) => {
-      let newUser = [...state.cart];
-      let index = newUser.findIndex((cartItem) => cartItem.id === item.id);
+      let newUser = [...state.user];
+      let index = newUser.findIndex((user) => user.id === item.id);
 
       if (index !== -1) {
         console.log("User already exists");
       } else {
-        //Annars om produkten inte finns i korgen sedan tidigare lägg till produkten i korgen.
-        newUser.push({ ...item, name: "", Email: "" }); // Lägg till den i korgen.
+        newUser.push({ ...item, Name: item.name, Email: item.email });
       }
     });
   },

@@ -90,7 +90,11 @@ const Profile = () => {
                   <button className="profileSmallBtn"></button>
                   <h4 className="gdpr">GDPR OK!</h4>
                 </section>
-                <button onClick={ToggleClass} className="profileBtn">
+                <button
+                  type="submit"
+                  onClick={ToggleClass}
+                  className="profileBtn"
+                >
                   Brew me a cup!
                 </button>
                 <footer className="filler"></footer>

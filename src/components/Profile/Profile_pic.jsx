@@ -1,9 +1,7 @@
 import "./profile_pic.scss";
-import { useStore } from "../../store";
+/* import { useStore } from "../../store"; */
 
 const Profile_pic = () => {
-  const totaltSpenderat = useStore((state) => state.totaltSpenderat);
-
   /*   const Display = () => {
     return users.?((order) => {
       return (

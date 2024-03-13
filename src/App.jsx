@@ -18,7 +18,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/nav" element={<Nav />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          {/*  <Route path="/profile" element={<Profile />} /> */}
           <Route path="/status" element={<Status />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>

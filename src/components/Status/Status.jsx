@@ -6,12 +6,14 @@ const Orderstatus = () => {
   const resetCart = useStore((state) => state.resetCart);
   const eta = useStore((state) => state.eta);
   const orderNr = useStore((state) => state.orderNr);
-  console.log(eta);
-  console.log(orderNr);
+  const seteta = useStore((state) => state.setEta);
+  const setorderNr = useStore((state) => state.setOrderNr);
   const navigate = useNavigate();
 
   const navigateToNewPage = () => {
     resetCart();
+    seteta(0);
+    setorderNr("Gör en beställning!");
     // use the navigate function to navigate to /Menu
     navigate("/Nav");
   };

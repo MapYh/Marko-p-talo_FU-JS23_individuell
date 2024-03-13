@@ -17,8 +17,6 @@ const Cart = () => {
   const decreaseQty = useStore((state) => state.decreaseQty);
   const totalSum = useStore((state) => state.totalSum);
 
-  console.log("cart", cart);
-
   const Display = () => {
     return cart.map((item) => {
       return (

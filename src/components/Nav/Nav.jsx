@@ -23,9 +23,9 @@ const Nav = () => {
     navigate("/about");
   };
 
-  const navigateToMyProfile = () => {
+  /*   const navigateToMyProfile = () => {
     navigate("/profile");
-  };
+  }; */
 
   const navigateToOrderStatus = () => {
     navigate("/status");
@@ -53,12 +53,12 @@ const Nav = () => {
           Vårt kaffe
         </div>
         <img src={Rectangle} alt="" />
-        <div
+        {/* <div
           onClick={() => navigateToMyProfile()}
           className="navstyling navbox"
         >
           Min profil
-        </div>
+        </div> */}
         <img src={Rectangle} alt="" />
         <div
           onClick={() => navigateToOrderStatus()}
